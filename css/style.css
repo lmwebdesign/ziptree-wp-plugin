@@ -33,11 +33,17 @@
 .ziptree #result{
 	
 }
-.ziptree #result .icon{
+.ziptree .icon{
 	margin-right:3px;
 	font-family: 'heydings_iconsregular';
 	cursor:pointer;
 	font-size:1em;
+}
+.ziptree .legend .icon{
+	cursor:default;
+}
+.ziptree .legend span{
+	margin-left:5px;
 }
 .ziptree #result .na{
 	color:red;
@@ -45,10 +51,7 @@
 .ziptree .good{
 	font-family: 'heydings_iconsregular';
 	color:#00CC00;
-}
-.ziptree .good{
-	font-family: 'heydings_iconsregular';
-	color:#00CC00;
+	margin-right:3px;
 }
 .ziptree .bad{
 	font-family: 'heydings_iconsregular';

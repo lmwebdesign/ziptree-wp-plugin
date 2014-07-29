@@ -177,12 +177,19 @@
 <div class="wrap ziptree">
 <?php
 	require('lmwd-defines.php');
-	
+?>
+	<div class="legend">
+		<p>Legend:</p>
+		<span><span class="icon">F</span>- make folder</span>
+		<span><span class="icon">Z</span>- zip folders</span>
+		<span><span class="icon">d</span>- download zip file</span>
+	</div>
+<?	
 	if(realpath($uploads['basedir'].DS.$ztd)){
 		if(is_writeable($path)){
-			echo '<p>ZipTree directory exists and has writeable permissions.</p>';
+			echo '<p><span class="good">O</span>ZipTree directory exists and has writeable permissions.</p>';
 		}else{
-			echo '<p>ZipTree directory is not writeable =[</p>';
+			echo '<p><span class="bad">X</span>ZipTree directory is not writeable =[</p>';
 		}
 	}else{
 		if(shell_exec('mkdir '.$path. DS .$ztd)){
@@ -191,7 +198,6 @@
 			echo '<p>Cannot created ZipTree directory.</p>';
 		}
 	}
-	
 ?>
 	<!--<form action="<?php echo $_SERVER['PHP_SELF']; ?>?page=ZipTree" method="POST" id="cpt-sel">-->
 		<span>Post Type: </span>
