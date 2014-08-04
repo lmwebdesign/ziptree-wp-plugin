@@ -25,7 +25,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-//function lmwd_treezip(){
+
 	add_action('admin_init','lmwd_ziptree_init');
 	add_action('admin_menu','lmwd_ziptree_actions');
 	
@@ -33,17 +33,17 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 		include('lmwd_ziptree_admin.php');
 	}
 	function lmwd_ziptree_init() {
+		if($_GET['page']=='ZipTree'){
         /* Register our script. */ 
         wp_register_script( 'lmwd_ziptree_js', plugins_url( '/js/jquery.js', __FILE__ ) );
-		//wp_deregister_script( 'jquery' );
-		// Register the library again from Google's CDN
-		//wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', array(), null, false );
+
 		// Link our already registered script to a page 
         wp_enqueue_script( 'lmwd_ziptree_js' );
+		}
     }
 	
 	function lmwd_ziptree_actions(){
-		$page_hook_suffix = add_options_page("ZipTree", "ZipTree", 1, "ZipTree", "lmwd_ziptree_admin");
+		add_options_page("ZipTree", "ZipTree", 1, "ZipTree", "lmwd_ziptree_admin");
 		
 		add_action( 'admin_enqueue_scripts', 'lmwd_ziptree_styles' );
 	}
@@ -56,8 +56,4 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 		wp_enqueue_style( 'lmwd-ziptree-style' );
 	}
 	
-
-
-//}
-//register_activation_hook(__FILE__,'lmwd_treezip');
 
