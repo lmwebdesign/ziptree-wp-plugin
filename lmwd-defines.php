@@ -5,6 +5,7 @@
 
 	$ztd = 'ziptree';
 	$path = realpath($uploads['basedir']);
+	$burl = $uploads['baseurl'];
 		
 	//QUERY ALL CPT
 	$args=array(
@@ -14,4 +15,5 @@
 	$output = 'names'; // names or objects, note names is the default
 	$operator = 'and'; // 'and' or 'or'
 	$cpts = get_post_types($args,$output,$operator); 
+	global $wpdb;
 ?>

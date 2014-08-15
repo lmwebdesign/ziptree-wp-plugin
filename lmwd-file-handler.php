@@ -1,9 +1,9 @@
 <?php
-define('WP_USE_THEMES', false);
-require('../../../wp-blog-header.php');
-require('lmwd-defines.php');
+include('lmwd-defines.php');
 set_time_limit(120); 
-
+?>
+<ul class="qlist">
+<?php	
 /**
 Code snippet for FlzZipArchive class sauce:
 http://ninad.pundaliks.in/blog/2011/05/recursively-zip-a-directory-with-php/
@@ -146,3 +146,4 @@ if(isset($_POST['pmkdir']) && $_POST['pmkdir'] !=''){
 	echo '<span class="good">O</span>';
 }
 ?>
+</ul>

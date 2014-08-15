@@ -25,35 +25,37 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-
+if($_GET['page']=='ZipTree'){
+	
 	add_action('admin_init','lmwd_ziptree_init');
+	add_action('admin_init','lmwd_ziptree_handlers');
+
 	add_action('admin_menu','lmwd_ziptree_actions');
 	
 	function lmwd_ziptree_admin() {
+		include('lmwd-defines.php');
 		include('lmwd_ziptree_admin.php');
+		
 	}
-	function lmwd_ziptree_init() {
-		if($_GET['page']=='ZipTree'){
-        /* Register our script. */ 
-        wp_register_script( 'lmwd_ziptree_js', plugins_url( '/js/jquery.js', __FILE__ ) );
+	
+	function lmwd_ziptree_handlers() {
+		include('lmwd-ziptree-lists.php');
+		include('lmwd-file-handler.php');
+		include('lmwd-download.php');
+	}
+	
+	function lmwd_ziptree_init() {	
+		// Get lmwd script with WP's jQuery dependency 
+		wp_enqueue_script('lmwd_ziptree_js', plugins_url('/js/lmwd_script.js',__FILE__), array( 'jquery' ));
+		// Register the style.
+		wp_register_style( 'lmwd-ziptree-style', plugins_url( '/css/style.css', __FILE__ ), array(), '20120208', 'all' );
+		// Enqueue the style.
+		wp_enqueue_style( 'lmwd-ziptree-style');
 
-		// Link our already registered script to a page 
-        wp_enqueue_script( 'lmwd_ziptree_js' );
-		}
     }
 	
 	function lmwd_ziptree_actions(){
+		//Place under Settings
 		add_options_page("ZipTree", "ZipTree", 1, "ZipTree", "lmwd_ziptree_admin");
-		
-		add_action( 'admin_enqueue_scripts', 'lmwd_ziptree_styles' );
 	}
-	
-	function lmwd_ziptree_styles(){
-		// Register the style like this for a plugin:
-		wp_register_style( 'lmwd-ziptree-style', plugins_url( '/css/style.css', __FILE__ ), array(), '20120208', 'all' );
-	 
-		// For either a plugin or a theme, you can then enqueue the style:
-		wp_enqueue_style( 'lmwd-ziptree-style' );
-	}
-	
-
+}

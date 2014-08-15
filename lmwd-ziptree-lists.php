@@ -1,30 +1,31 @@
 <?php
-define('WP_USE_THEMES', false);
-require('../../../wp-blog-header.php');
-require('lmwd-defines.php'); 
-
+	include('lmwd-defines.php');
+?>
+	<ul class="qlist">
+<?php		
+			
 //get post types
 if(isset($_POST['cpt']) && $_POST['cpt'] !=''){
-		
-		if($_POST['cpt']=='all'){
+if($_POST['cpt']=='all'){
 			$posts = $cpts;
 		}else{
 			$posts = array($_POST['cpt']);
 		}
 		
 		sort($posts);
-		
+
 		foreach ($posts as $cpt ) {
 			$count = wp_count_posts($cpt);
 			echo '<li id="'.$cpt.'-list">
 					<span class="cpt">
 						<span class="icon list" alt="cpt">+</span>
+						'.$cpt.' ('.$count->publish.')
 						<span class="icon mkdir" alt="cpt">F</span>
 						<span class="icon zipfiles" alt="cpt">Z</span>
-						<span class="icon dwld" alt="cpt">d</span>'.$cpt.' ('.$count->publish.')
+						<span class="icon dwld" alt="cpt">d</span>
 					<input class="value" type="hidden" value="'.$cpt.'"/>
 					</span><ul></ul></li>';	
-		}
+		}	
 }
 //get posts within post types
 if(isset($_POST['posttype']) && $_POST['posttype'] !=''){
@@ -47,9 +48,10 @@ if(isset($_POST['posttype']) && $_POST['posttype'] !=''){
 			echo '<li id="post-'.get_the_ID().'">
 					<span class="post">
 						<span class="icon list" alt="post">+</span>
+						'.$post->post_name.'
 						<span class="icon mkdir" alt="post">F</span>
 						<span class="icon zipfiles" alt="post">Z</span>
-						<span class="icon dwld" alt="post">d</span>'.$post->post_name.'
+						<span class="icon dwld" alt="post">d</span>
 					<input class="value" type="hidden" value="'.get_the_ID().'"/>
 					</span><ul></ul></li>';
 			wp_reset_postdata();		
@@ -85,3 +87,5 @@ if(isset($_POST['post']) && $_POST['post'] !=''){
 
 }
 ?>
+</ul>
+	

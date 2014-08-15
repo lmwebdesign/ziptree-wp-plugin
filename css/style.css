@@ -11,6 +11,7 @@
 .ziptree{
 	border:1px solid rgba(0,0,0,0.5);
 	padding:15px;
+	cursor:default;
 }
 .ziptree #loading, 
 .ziptree #mkdir{
@@ -37,13 +38,22 @@
 	margin-right:3px;
 	font-family: 'heydings_iconsregular';
 	cursor:pointer;
+	opacity:0.6;
 	font-size:1em;
+}
+.ziptree .icon:hover{
+	opacity:1;
+}
+.ziptree .legend{
+	background:#d9e8d3;
+	padding:10px;
+	float:left;
 }
 .ziptree .legend .icon{
 	cursor:default;
 }
 .ziptree .legend span{
-	margin-left:5px;
+	margin:0 5px;
 }
 .ziptree #result .na{
 	color:red;
