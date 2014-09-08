@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'heydings_iconsregular';
+    src: url('fonts/heydings_icons-webfont.eot');
+    src: url('fonts/heydings_icons-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/heydings_icons-webfont.woff') format('woff'),
+         url('fonts/heydings_icons-webfont.ttf') format('truetype'),
+         url('fonts/heydings_icons-webfont.svg#heydings_iconsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.ziptree{
+	border:1px solid rgba(0,0,0,0.5);
+	padding:15px;
+	cursor:default;
+}
+.ziptree #loading, 
+.ziptree #mkdir{
+	opacity:0;
+}
+.ziptree ul li .cpt,
+.ziptree ul li .post,
+.ziptree ul li .files{
+	border-bottom:1px solid black;
+}
+.ziptree ul li{
+	border-left:1px solid black;
+	margin-left:1%;
+	padding-left:3px;
+}
+.ziptree .cpt,
+.ziptree .post{
+	cursor:default;
+}
+.ziptree #result{
+	
+}
+.ziptree .icon{
+	margin-right:3px;
+	font-family: 'heydings_iconsregular';
+	cursor:pointer;
+	opacity:0.6;
+	font-size:1em;
+}
+.ziptree .icon:hover{
+	opacity:1;
+}
+.ziptree .legend{
+	background:#d9e8d3;
+	padding:10px;
+	float:left;
+}
+.ziptree .legend .icon{
+	cursor:default;
+}
+.ziptree .legend span{
+	margin:0 5px;
+}
+.ziptree #result .na{
+	color:red;
+}
+.ziptree .good{
+	font-family: 'heydings_iconsregular';
+	color:#00CC00;
+	margin-right:3px;
+}
+.ziptree .bad{
+	font-family: 'heydings_iconsregular';
+	color:#FF0000;
+}
+.mkdir,
+.zipfiles,
+.dwld{
+	display:none;
+}
+.post:hover > .mkdir,
+.post:hover > .zipfiles,
+.post:hover > .dwld,
+.cpt:hover > .mkdir,
+.cpt:hover > .zipfiles,
+.cpt:hover > .dwld{
+	display:inline;
+}
+/*loading animation*/
