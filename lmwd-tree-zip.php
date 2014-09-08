@@ -29,8 +29,6 @@ if($_GET['page']=='ZipTree'){
 	
 	add_action('admin_init','lmwd_ziptree_init');
 	add_action('admin_init','lmwd_ziptree_handlers');
-
-	add_action('admin_menu','lmwd_ziptree_actions');
 	
 	function lmwd_ziptree_admin() {
 		include('lmwd-defines.php');
@@ -53,9 +51,11 @@ if($_GET['page']=='ZipTree'){
 		wp_enqueue_style( 'lmwd-ziptree-style');
 
     }
+}
+	add_action('admin_menu','lmwd_ziptree_actions');
 	
 	function lmwd_ziptree_actions(){
 		//Place under Settings
 		add_options_page("ZipTree", "ZipTree", 1, "ZipTree", "lmwd_ziptree_admin");
 	}
-}
+
